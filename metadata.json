@@ -1,0 +1,6 @@
+{
+  "name": "Jmn – Expertos en Techos",
+  "description": "Landing page de alta conversión para Jmn, expertos en reparación, cambio e instalación de techos en Santiago con más de 30 años de experiencia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

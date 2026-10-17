@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --color-base: #15181D;
+  --color-surface: #F6F5F2;
+  --color-accent: #E8731A;
+  --color-accent-hover: #d26414;
+  --color-text: #1D2024;
+  --color-text-muted: #5B6168;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #20bd5a;
+  
+  --font-display: "Archivo", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Diagonal roof slope divider */
+.roof-slope-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), 0 100%);
+}
+
+@media (min-width: 768px) {
+  .roof-slope-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), 0 100%);
+  }
+}
+
+.roof-slope-top {
+  clip-path: polygon(0 32px, 100% 0, 100% 100%, 0 100%);
+}
+
+@media (min-width: 768px) {
+  .roof-slope-top {
+    clip-path: polygon(0 48px, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* WhatsApp soft pulse ring */
+@keyframes whatsapp-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 6s infinite;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-marquee {
+    animation: none !important;
+    transform: none !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  .animate-whatsapp-pulse {
+    animation: none !important;
+  }
+}
